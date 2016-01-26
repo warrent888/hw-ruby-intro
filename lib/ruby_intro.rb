@@ -11,16 +11,25 @@ def sum arr
 end
 
 def max_2_sum arr
-  best = arr.max
-  arr.delete(best)
-  return best + arr.max
+  if arr.length == 0
+    return 0
+  end
+  if arr.length == 1
+    return arr[0]
+  end
+  best = -999999
+  second = -999999
+  arr.each do |x|
+    if x >= best
+      second = best
+      best = x
+    end
+  end
+  return best + second
 end
 
 def sum_to_n? arr, n
   if arr.length == 0
-    if n == 0
-      return true
-    end
     return false
   end
   if arr.length == 1
