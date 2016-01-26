@@ -23,6 +23,10 @@ def max_2_sum arr
     if x >= best
       second = best
       best = x
+      next
+    end
+    if x >= second
+      second = x
     end
   end
   return best + second
